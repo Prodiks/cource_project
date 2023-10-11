@@ -1,10 +1,8 @@
-package ru.roman.courseproject.repository;
+package cource_project.repository;
 
+import cource_project.models.Apartment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.roman.courseproject.models.Apartment;
-
-import java.util.List;
 
 @Repository
 public interface ApartmentRepository extends JpaRepository<Apartment, Integer> {

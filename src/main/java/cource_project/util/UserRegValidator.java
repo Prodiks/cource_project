@@ -1,12 +1,11 @@
-package ru.roman.courseproject.util;
+package cource_project.util;
 
+import cource_project.dto.UserDTO;
+import cource_project.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-import ru.roman.courseproject.dto.UserDTO;
-import ru.roman.courseproject.models.User;
-import ru.roman.courseproject.service.UsersService;
 
 @Component
 public class UserRegValidator implements Validator {

@@ -1,8 +1,7 @@
-package ru.roman.courseproject.repository;
+package cource_project.repository;
 
-import org.hibernate.type.descriptor.converter.spi.JpaAttributeConverter;
+import cource_project.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.roman.courseproject.models.Role;
 
 public interface RoleRepository extends JpaRepository<Role, Integer> {
     Role findByName(String name);

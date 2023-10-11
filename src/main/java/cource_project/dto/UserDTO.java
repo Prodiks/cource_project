@@ -1,4 +1,4 @@
-package ru.roman.courseproject.dto;
+package cource_project.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;

@@ -1,14 +1,14 @@
-package ru.roman.courseproject.controllers;
+package cource_project.controllers;
 
+import cource_project.models.User;
+import cource_project.service.ApartmentService;
+import cource_project.service.UserActionsService;
+import cource_project.service.UsersService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.roman.courseproject.models.User;
-import ru.roman.courseproject.service.ApartmentService;
-import ru.roman.courseproject.service.UserActionsService;
-import ru.roman.courseproject.service.UsersService;
 import org.springframework.ui.Model;
 
 @Controller

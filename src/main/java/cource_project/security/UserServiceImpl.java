@@ -1,13 +1,13 @@
-package ru.roman.courseproject.security;
+package cource_project.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.roman.courseproject.dto.UserDTO;
-import ru.roman.courseproject.models.Role;
-import ru.roman.courseproject.models.User;
-import ru.roman.courseproject.repository.RoleRepository;
-import ru.roman.courseproject.repository.UsersRepository;
+import cource_project.dto.UserDTO;
+import cource_project.models.Role;
+import cource_project.models.User;
+import cource_project.repository.RoleRepository;
+import cource_project.repository.UsersRepository;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ru.roman.courseproject.config;
+package cource_project.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package ru.roman.courseproject.models;
+package cource_project.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

@@ -1,4 +1,4 @@
-package ru.roman.courseproject.security;
+package cource_project.security;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ru.roman.courseproject.models.User;
-import ru.roman.courseproject.repository.UsersRepository;
+import cource_project.models.User;
+import cource_project.repository.UsersRepository;
 
 import java.util.Optional;
 import java.util.stream.Collectors;

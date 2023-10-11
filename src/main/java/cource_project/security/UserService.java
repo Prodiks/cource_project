@@ -1,7 +1,7 @@
-package ru.roman.courseproject.security;
+package cource_project.security;
 
-import ru.roman.courseproject.dto.UserDTO;
-import ru.roman.courseproject.models.User;
+import cource_project.dto.UserDTO;
+import cource_project.models.User;
 
 import java.util.List;
 

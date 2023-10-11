@@ -1,5 +1,9 @@
-package ru.roman.courseproject.controllers;
+package cource_project.controllers;
 
+import cource_project.dto.UserDTO;
+import cource_project.models.User;
+import cource_project.security.UserService;
+import cource_project.util.UserRegValidator;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,10 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.roman.courseproject.dto.UserDTO;
-import ru.roman.courseproject.models.User;
-import ru.roman.courseproject.security.UserService;
-import ru.roman.courseproject.util.UserRegValidator;
 
 @Controller
 @RequestMapping("/auth")
@@ -33,7 +33,7 @@ public class SecurityController {
     }
 
     @GetMapping("/registration")
-    public String registrationPage(@ModelAttribute("user")User user){
+    public String registrationPage(@ModelAttribute("user") User user){
         return "security/register";
     }
 

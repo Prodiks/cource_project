@@ -1,14 +1,14 @@
-package ru.roman.courseproject.service;
+package cource_project.service;
 
+import cource_project.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.roman.courseproject.models.User;
-import ru.roman.courseproject.models.UserAction;
-import ru.roman.courseproject.repository.UserActions;
-import ru.roman.courseproject.repository.UsersRepository;
+import cource_project.models.User;
+import cource_project.models.UserAction;
+import cource_project.repository.UserActions;
 
 import java.sql.Timestamp;
 import java.util.Optional;

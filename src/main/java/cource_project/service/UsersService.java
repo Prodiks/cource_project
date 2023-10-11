@@ -1,12 +1,12 @@
-package ru.roman.courseproject.service;
+package cource_project.service;
 
+import cource_project.models.Apartment;
+import cource_project.repository.UsersRepository;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.roman.courseproject.models.Apartment;
-import ru.roman.courseproject.models.User;
-import ru.roman.courseproject.repository.UsersRepository;
+import cource_project.models.User;
 
 import java.util.Collections;
 import java.util.List;

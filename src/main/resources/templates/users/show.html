@@ -23,7 +23,7 @@
                     <a class="nav-link active" aria-current="page" th:href="@{/users}">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/books}">Books</a>
+                    <a class="nav-link active" aria-current="page" th:href="@{/apartments}">Apartments</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
@@ -51,16 +51,16 @@
     </div>
     <hr/>
 
-    <div class="col-sm-10" th:if="${books.isEmpty()}">
+    <div class="col-sm-10" th:if="${apartments.isEmpty()}">
         <p>Человек пока не взял ни одной книги</p>
         <hr/>
     </div>
 
-    <div class="col-sm-10" th:if="${!books.isEmpty()}">
+    <div class="col-sm-10" th:if="${!apartments.isEmpty()}">
         <hr/>
         <b>Книги:</b>
         <br/>
-        <table class="table table-bordered table-hover" th:each="apartment : ${books}">
+        <table class="table table-bordered table-hover" th:each="apartment : ${apartments}">
             <tr>
                 <td>
                 <span th:text="${apartment.getTitle() + ', ' + apartment.getAuthor() + ', ' + apartment.getYear()}"
