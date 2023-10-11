@@ -60,12 +60,12 @@
         <hr/>
         <b>Книги:</b>
         <br/>
-        <table class="table table-bordered table-hover" th:each="book : ${books}">
+        <table class="table table-bordered table-hover" th:each="apartment : ${books}">
             <tr>
                 <td>
-                <span th:text="${book.getTitle() + ', ' + book.getAuthor() + ', ' + book.getYear()}"
-                      th:style="${book.isExpired()} ? 'color: red' : 'color: black'">
-                    book
+                <span th:text="${apartment.getTitle() + ', ' + apartment.getAuthor() + ', ' + apartment.getYear()}"
+                      th:style="${apartment.isExpired()} ? 'color: red' : 'color: black'">
+                    apartment
                 </span>
                 </td>
             </tr>

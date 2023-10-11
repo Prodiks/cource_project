@@ -6,26 +6,26 @@
 </head>
 <body>
 
-<form th:method="POST" th:action="@{/books/search}">
+<form th:method="POST" th:action="@{/apartments/search}">
     <label for="query">Введите поисковой запрос: </label>
     <input type="text" id="query" name="query"/>
     <br/>
     <input type="submit" value="Искать!"/>
 </form>
 
-<div th:if="${books}">
-    <div th:if="${books.isEmpty()}">
+<div th:if="${apartments}">
+    <div th:if="${apartments.isEmpty()}">
         <span>Книг не найдено</span>
     </div>
 
-    <div th:each="book : ${books}">
-        <p th:text="${book.getTitle() + ', ' + book.getYear()}">book</p>
+    <div th:each="apartment : ${apartments}">
+        <p th:text="${apartment.getTitle() + ', ' + apartment.getYear()}">apartment</p>
 
-        <div th:if="${book.getOwner() != null}">
-            <span>Книга сейчас у: </span> <span th:text="${book.getOwner().getFullName()}">Person Name</span>
+        <div th:if="${apartment.getOwner() != null}">
+            <span>Книга сейчас у: </span> <span th:text="${apartment.getOwner().getFullName()}">Person Name</span>
         </div>
 
-        <div th:if="${book.getOwner() == null}">
+        <div th:if="${apartment.getOwner() == null}">
             <span>Книга свободна</span>
         </div>
 

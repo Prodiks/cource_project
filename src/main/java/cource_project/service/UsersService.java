@@ -2,10 +2,9 @@ package ru.roman.courseproject.service;
 
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.roman.courseproject.models.Book;
+import ru.roman.courseproject.models.Apartment;
 import ru.roman.courseproject.models.User;
 import ru.roman.courseproject.repository.UsersRepository;
 
@@ -57,11 +56,11 @@ public class UsersService {
         return usersRepository.findByUsername(username);
     }
 
-    public List<Book> getBooksByUserId(int id){
+    public List<Apartment> getApartmentsByUserId(int id){
         Optional<User> user = usersRepository.findById(id);
         if(user.isPresent()){
-            Hibernate.initialize(user.get().getBooks());
-            return user.get().getBooks();
+            Hibernate.initialize(user.get().getApartments());
+            return user.get().getApartments();
         } else {
             return Collections.emptyList();
         }

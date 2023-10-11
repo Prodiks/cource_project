@@ -22,14 +22,14 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests((requests) -> requests
                 .requestMatchers("/auth/registration", "/auth/login").permitAll()
-                .requestMatchers("/books", "/").permitAll()
+                .requestMatchers("/apartments", "/").permitAll()
                 .requestMatchers("/users/**").hasRole("ADMIN")
                 .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/auth/login")
                         .loginProcessingUrl("/auth/login")
-                        .defaultSuccessUrl("/books", true)
-                        .successForwardUrl("/books")
+                        .defaultSuccessUrl("/apartments", true)
+                        .successForwardUrl("/apartments")
                         .failureUrl("/auth/login?error")
                         .permitAll())
                 .logout(logout -> logout

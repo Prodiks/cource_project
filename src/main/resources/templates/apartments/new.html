@@ -23,7 +23,7 @@
                     <a class="nav-link active" aria-current="page" th:href="@{/users}">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/books}">Books</a>
+                    <a class="nav-link active" aria-current="page" th:href="@{/apartments}">Apartments</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
@@ -37,24 +37,25 @@
 
     <hr/>
 
-    <h3 th:text="'Edit ' + ${book.getTitle()}">Edit book</h3>
+    <h3 th:text="'Add apartment'">Add new apartment</h3>
     <hr/>
 
-    <form th:action="@{/books/{id}(id=${book.getId()})}" th:object="${book}" method="POST">
+    <form th:action="@{/apartments}" th:object="${apartment}" method="POST">
 
-        <input type="text" th:field="*{title}" class="form-control col-4 mb-4" placeholder="Enter title"/>
+        <input type="text" th:field="*{number}" class="form-control col-4 mb-4" placeholder="Enter title"/>
+        <div style="color: red" th:if="${#fields.hasErrors('number')}" th:errors="*{number}">Title error</div>
 
-        <input type="text" th:field="*{author}" class="form-control col-4 mb-4" placeholder="Enter author"/>
+        <input type="text" th:field="*{floor}" class="form-control col-4 mb-4" placeholder="Enter author"/>
+        <div style="color: red" th:if="${#fields.hasErrors('floor')}" th:errors="*{floor}">Author error</div>
 
-        <input type="text" th:field="*{year}" class="form-control col-4 mb-4" placeholder="Enter year"/>
+        <input type="text" th:field="*{note}" class="form-control col-4 mb-4" placeholder="Enter year"/>
+        <div style="color: red" th:if="${#fields.hasErrors('note')}" th:errors="*{note}">Year error</div>
 
-        <button type="submit" class="btn btn-primary col-2">Save</button>
-
-        <input type="hidden" th:field="*{id}"/>
+        <button type="submit" class="btn btn-primary col-2">Create</button>
 
     </form>
     <hr/>
-    <a th:href="@{/books/{id}(id=${book.getId()})}" class="btn btn-info">Back to book</a>
+    <a th:href="@{/apartments}" class="btn btn-info">Back to apartments</a>
 </div>
 
 </body>

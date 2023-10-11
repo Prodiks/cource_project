@@ -43,7 +43,7 @@ public class User {
     private String fullName;
 
     @OneToMany(mappedBy = "owner")
-    private List<Book> books;
+    private List<Apartment> apartments;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(

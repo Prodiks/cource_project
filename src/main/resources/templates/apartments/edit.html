@@ -8,13 +8,6 @@
           rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
           crossorigin="anonymous">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <style>
-        .btn {
-            margin: 10px;
-        }
-    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -30,7 +23,7 @@
                     <a class="nav-link active" aria-current="page" th:href="@{/users}">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/books}">Books</a>
+                    <a class="nav-link active" aria-current="page" th:href="@{/apartments}">Apartments</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
@@ -40,33 +33,28 @@
         </div>
     </div>
 </nav>
+<div class="container">
 
+    <hr/>
 
-<form th:method="POST" th:action="@{/books/search}">
-    <label for="query">Введите поисковой запрос: </label>
-    <input type="text" id="query" name="query"/>
-    <br/>
-    <input type="submit" value="Искать!"/>
-</form>
+    <h3 th:text="'Edit ' + ${apartment.getTitle()}">Edit apartment</h3>
+    <hr/>
 
-<div th:if="${books}">
-    <div th:if="${books.isEmpty()}">
-        <span>Книг не найдено</span>
-    </div>
+    <form th:action="@{/apartments/{id}(id=${apartment.getId()})}" th:object="${apartment}" method="POST">
 
-    <div th:each="book : ${books}">
-        <p th:text="${book.getTitle() + ', ' + book.getYear()}">book</p>
+        <input type="text" th:field="*{title}" class="form-control col-4 mb-4" placeholder="Enter title"/>
 
-        <div th:if="${book.getOwner() != null}">
-            <span>Книга сейчас у: </span> <span th:text="${book.getOwner().getFullName()}">Person Name</span>
-        </div>
+        <input type="text" th:field="*{author}" class="form-control col-4 mb-4" placeholder="Enter author"/>
 
-        <div th:if="${book.getOwner() == null}">
-            <span>Книга свободна</span>
-        </div>
+        <input type="text" th:field="*{year}" class="form-control col-4 mb-4" placeholder="Enter year"/>
 
-        <hr/>
-    </div>
+        <button type="submit" class="btn btn-primary col-2">Save</button>
+
+        <input type="hidden" th:field="*{id}"/>
+
+    </form>
+    <hr/>
+    <a th:href="@{/apartments/{id}(id=${apartment.getId()})}" class="btn btn-info">Back to apartment</a>
 </div>
 
 </body>

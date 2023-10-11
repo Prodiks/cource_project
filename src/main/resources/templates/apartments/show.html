@@ -23,7 +23,7 @@
                     <a class="nav-link active" aria-current="page" th:href="@{/users}">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/books}">Books</a>
+                    <a class="nav-link active" aria-current="page" th:href="@{/apartments}">Apartments</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
@@ -37,32 +37,32 @@
 
     <hr/>
 
-    <h3 th:text="'Information about ' + ${book.getTitle()}">Information about book</h3>
+    <h3 th:text="'Information about ' + ${apartment.getTitle()}">Information about apartment</h3>
     <hr/>
     <div class="form-group row">
         <label for="staticTitle" class="col-sm-2 col-form-label">Title</label>
         <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="staticTitle" th:value="${book.getTitle()}">
+            <input type="text" readonly class="form-control-plaintext" id="staticTitle" th:value="${apartment.getTitle()}">
         </div>
         <label for="staticAuthor" class="col-sm-2 col-form-label">Author</label>
         <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="staticAuthor" th:value="${book.getAuthor()}">
+            <input type="text" readonly class="form-control-plaintext" id="staticAuthor" th:value="${apartment.getAuthor()}">
         </div>
         <label for="staticYear" class="col-sm-2 col-form-label">Year</label>
         <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="staticYear" th:value="${book.getYear()}">
+            <input type="text" readonly class="form-control-plaintext" id="staticYear" th:value="${apartment.getYear()}">
         </div>
         <div th:if="${owner}">
             <span>Книга сейчас у: </span>
             <span th:text="${owner.getFullName()}"></span>
-            <form th:method="PATCH" th:action="@{/books/{id}/release(id=${book.getId()})}">
+            <form th:method="PATCH" th:action="@{/apartments/{id}/release(id=${apartment.getId()})}">
                 <input type="submit" value="Освободить книгу"/>
             </form>
         </div>
 
         <div th:if="${users}">
             <span>Эта книга свободна. Кому ее назначить?</span>
-            <form th:method="PATCH" th:action="@{/books/{id}/assign(id=${book.getId()})}">
+            <form th:method="PATCH" th:action="@{/apartments/{id}/assign(id=${apartment.getId()})}">
                 <label for="user">Выберите человека</label>
                 <select th:object="${user}" th:field="*{id}" id="user">
                     <option th:each="user : ${users}" th:value="${user.getId()}" th:text="${user.getFullName()}"></option>
@@ -75,8 +75,8 @@
     </div>
     <hr/>
 
-    <a th:href="@{/books/{id}/edit(id=${book.getId()})}" class="btn btn-danger ml-2">Edit book</a>
-    <a th:href="@{/books}" class="btn btn-info">Back to list</a>
+    <a th:href="@{/apartments/{id}/edit(id=${apartment.getId()})}" class="btn btn-danger ml-2">Edit apartment</a>
+    <a th:href="@{/apartments}" class="btn btn-info">Back to list</a>
 
 </div>
 

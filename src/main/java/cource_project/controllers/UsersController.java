@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.roman.courseproject.models.User;
-import ru.roman.courseproject.service.BooksService;
+import ru.roman.courseproject.service.ApartmentService;
 import ru.roman.courseproject.service.UserActionsService;
 import ru.roman.courseproject.service.UsersService;
 import org.springframework.ui.Model;
@@ -16,14 +16,14 @@ import org.springframework.ui.Model;
 public class UsersController {
 
     private final UsersService usersService;
-    private final BooksService booksService;
+    private final ApartmentService apartmentService;
 
     private final UserActionsService userActionsService;
 
     @Autowired
-    public UsersController(UsersService usersService, BooksService booksService, UserActionsService userActionsService) {
+    public UsersController(UsersService usersService, ApartmentService apartmentService, UserActionsService userActionsService) {
         this.usersService = usersService;
-        this.booksService = booksService;
+        this.apartmentService = apartmentService;
         this.userActionsService = userActionsService;
     }
 
@@ -38,7 +38,7 @@ public class UsersController {
     public String show(@PathVariable("id") int id, Model model){
         userActionsService.writeLog("Переход на сылку /users/" + id);
         model.addAttribute("user", usersService.findOne(id));
-        model.addAttribute("books", usersService.getBooksByUserId(id));
+        model.addAttribute("apartments", usersService.getApartmentsByUserId(id));
         return "users/show";
     }
 
