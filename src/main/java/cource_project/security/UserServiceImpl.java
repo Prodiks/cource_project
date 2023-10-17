@@ -37,7 +37,6 @@ public class UserServiceImpl implements UserService{
         user.setUsername(userDTO.getUsername());
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
         user.setEmail(userDTO.getEmail());
-        user.setFullName(userDTO.getFullName());
 
         Role role = roleRepository.findByName("ROLE_ADMIN");
 
@@ -68,7 +67,6 @@ public class UserServiceImpl implements UserService{
         UserDTO userDTO = new UserDTO();
         userDTO.setUsername(user.getUsername());
         userDTO.setEmail(user.getEmail());
-        userDTO.setFullName(user.getFullName());
         return userDTO;
     }
 

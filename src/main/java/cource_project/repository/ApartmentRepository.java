@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ApartmentRepository extends JpaRepository<Apartment, Integer> {
-//    List<Apartment> findByTitleStartingWith(String title);
+    Apartment findApartmentByNumber(int number);
 }

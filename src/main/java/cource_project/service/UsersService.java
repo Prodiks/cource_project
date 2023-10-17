@@ -53,7 +53,7 @@ public class UsersService {
     }
 
     public Optional<User> getUserByUsername(String username){
-        return usersRepository.findByUsername(username);
+        return usersRepository.findByEmail(username);
     }
 
     public List<Apartment> getApartmentsByUserId(int id){

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Student Management System</title>
+    <title>Учет жильцов в многоквартирном доме</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
@@ -12,7 +12,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">Registration and Login System</a>
+        <a class="navbar-brand" th:href="@{/}">Учет жильцов в многоквартирном доме</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -20,13 +20,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/users}">Users</a>
+                    <a class="nav-link active" aria-current="page" th:href="@{/users}">Владельцы</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/apartments}">Apartments</a>
+                    <a class="nav-link active" aria-current="page" th:href="@{/apartments}">Квартиры</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
+                    <a class="nav-link active" aria-current="page" th:href="@{/logout}">Выход</a>
                 </li>
             </ul>
 
@@ -37,24 +37,26 @@
 
     <hr/>
 
-    <h3 th:text="'Edit ' + ${user.getUsername()}">Edit user</h3>
+    <h3 th:text="'Редактирование ' + ${user.getUsername()}">Edit user</h3>
     <hr/>
 
     <form th:action="@{/users/{id}(id=${user.getId()})}" th:object="${user}" method="POST">
+        <label>Имя пользователя</label>
+        <input type="text" th:field="*{username}" class="form-control col-4 mb-4" placeholder="Введите имя пользователя"/>
 
-        <input type="text" th:field="*{username}" class="form-control col-4 mb-4" placeholder="Enter Username"/>
+        <label>Полное имя</label>
+        <input type="text" th:field="*{fullName}" class="form-control col-4 mb-4" placeholder="Введите имя"/>
 
-        <input type="text" th:field="*{fullName}" class="form-control col-4 mb-4" placeholder="Enter Full name"/>
+        <label>Email</label>
+        <input type="text" th:field="*{email}" class="form-control col-4 mb-4" placeholder="Введите Email"/>
 
-        <input type="text" th:field="*{email}" class="form-control col-4 mb-4" placeholder="Enter Email"/>
-
-        <button type="submit" class="btn btn-primary col-2">Save</button>
+        <button type="submit" class="btn btn-primary col-2">Сохранить</button>
 
         <input type="hidden" th:field="*{id}"/>
 
     </form>
     <hr/>
-    <a th:href="@{/users/{id}(id=${user.getId()})}" class="btn btn-info">Back to user</a>
+    <a th:href="@{/users/{id}(id=${user.getId()})}" class="btn btn-info">Назад</a>
 </div>
 
 </body>

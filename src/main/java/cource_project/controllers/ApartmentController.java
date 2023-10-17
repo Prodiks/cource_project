@@ -71,7 +71,7 @@ public class ApartmentController {
         if(bindingResult.hasErrors())
             return "apartments/edit";
 
-        userActionsService.writeLog("Изменение книги с id=" + id);
+        userActionsService.writeLog("Изменение квартиры с id=" + id);
         apartmentService.update(id, apartment);
         return "redirect:/apartments/" + id;
     }
@@ -89,7 +89,7 @@ public class ApartmentController {
         if (bindingResult.hasErrors())
             return "apartments/new";
 
-        userActionsService.writeLog("Добавление новой книги");
+        userActionsService.writeLog("Добавление новой квартиры");
         apartmentService.save(apartment);
         return "redirect:/apartments";
     }
@@ -103,7 +103,7 @@ public class ApartmentController {
 
     @PostMapping("/{id}/release")
     public String release(@PathVariable("id") int id){
-        userActionsService.writeLog("Освобождение книги");
+        userActionsService.writeLog("Освобождение квартиры");
         apartmentService.release(id);
         return "redirect:/apartments/" + id;
     }
@@ -111,21 +111,8 @@ public class ApartmentController {
     @PostMapping("/{id}/assign")
     public String assign(@PathVariable("id") int id,
                          @ModelAttribute("user") User user){
-        userActionsService.writeLog("Занятие книги");
+        userActionsService.writeLog("Занятие квартиры");
         apartmentService.assign(id, user);
         return "redirect:/apartments/" + id;
     }
-
-//    @GetMapping("/search")
-//    public String search(){
-//        userActionsService.writeLog("Переход на сылку /apartments/search");
-//        return "apartments/search";
-//    }
-
-//    @PostMapping("/search")
-//    public String doSearch(Model model, @RequestParam("query") String query){
-//        userActionsService.writeLog("Поиск книги, запрос: " + query);
-//        model.addAttribute("apartments", apartmentsService.searchByTitle(query));
-//        return "apartments/search";
-//    }
 }

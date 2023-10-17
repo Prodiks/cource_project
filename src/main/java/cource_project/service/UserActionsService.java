@@ -27,7 +27,7 @@ public class UserActionsService {
     }
 
     @Transactional
-    public void writeLog(String action){
+    public void writeLog(String msg){
         UserAction uAction = new UserAction();
 
         Optional<User> user = usersRepository.findByEmail(getCurrentUsername());
@@ -35,8 +35,8 @@ public class UserActionsService {
         user.ifPresent(uAction::setUser);
 
         uAction.setDateActions(new Timestamp(System.currentTimeMillis()));
-        uAction.setDescriptions(action);
-
+        uAction.setDescriptions(msg);
+        System.out.println(msg);
         userActions.save(uAction);
     }
 

@@ -1,6 +1,7 @@
 package cource_project.service;
 
 import cource_project.models.Apartment;
+import org.aspectj.apache.bcel.classfile.ExceptionTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -48,11 +49,6 @@ public class ApartmentService {
 
         apartmentRepository.save(updatedApartment);
     }
-
-//    public List<Apartment> searchByTitle(String query){
-//        return apartmentRepository.findByTitleStartingWith(query);
-//    }
-
     @Transactional
     public void delete(int id) {
         apartmentRepository.deleteById(id);
